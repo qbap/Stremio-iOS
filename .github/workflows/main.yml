@@ -9,7 +9,6 @@ jobs:
         run: sudo gem install cocoapods
       - name: Build Project
         run: |
-          cd Stremio-iOS
           pod install
           xcodebuild -workspace Stremio.xcworkspace -scheme Stremio -destination 'generic/platform=iOS' clean archive -archivePath Stremio.xcarchive
       - name: Export IPA
