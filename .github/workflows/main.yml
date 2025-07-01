@@ -14,13 +14,10 @@ jobs:
         run: sudo gem install cocoapods
 
       - name: Install Dependencies
-        run: |
-          cd Stremio-iOS
-          pod install
+        run: pod install
 
       - name: Build and Archive App
         run: |
-          cd Stremio-iOS
           xcodebuild -workspace Stremio.xcworkspace \
                      -scheme Stremio \
                      -destination 'generic/platform=iOS' \
@@ -30,7 +27,6 @@ jobs:
 
       - name: Export IPA
         run: |
-          cd Stremio-iOS
           xcodebuild -exportArchive \
                      -archivePath $PWD/Stremio.xcarchive \
                      -exportOptionsPlist ExportOptions.plist \
@@ -40,4 +36,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Stremio.ipa
-          path: Stremio-iOS/Stremio.ipa
+          path: Stremio.ipa
