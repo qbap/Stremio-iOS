@@ -15,7 +15,7 @@ jobs:
       - name: Export IPA
         run: |
           xcodebuild -exportArchive -archivePath Stremio.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath .
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: Stremio.ipa
           path: Stremio.ipa
